@@ -1,0 +1,130 @@
+.contact-section {
+  background: #1e1e1e;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  border-radius: 5.8px;
+}
+
+.contact-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+/* Left side */
+.contact-left {
+  flex: 1;
+  color: #fff;
+}
+
+.contact-left h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.contact-left p {
+  color: #cfcfcf;
+  margin-bottom: 40px;
+}
+
+/* Testimonial */
+.testimonial {
+  background: transparent;
+}
+
+.stars {
+  color: #fbbf24; /* yellow stars */
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.testimonial p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.author h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.author span {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Right side form */
+.contact-right {
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.contact-right h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.contact-right p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.contact-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-right label {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.contact-right input,
+.contact-right textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.contact-right textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.contact-right button {
+  background: #f97316;
+  color: #fff;
+  padding: 14px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.contact-right button:hover {
+  background: #ea580c;
+}

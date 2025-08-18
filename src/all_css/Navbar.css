@@ -103,7 +103,8 @@
   align-items: center;
   gap: 1rem;
   padding: 10px 20px;
-  background: #f47b7b;
+  background: #111827;
+  color: #f1f1f1;
 }
 
 /* Mobile nav header with logo and hamburger */
@@ -164,7 +165,7 @@
 /* Remove underline for all nav links */
 .main-nav .nav-link {
   text-decoration: none;
-  color: #333;
+  color: #f1f1f1;
   padding: 6px 10px; /* normal padding for spacing */
   border-radius: 5px;
   transition: background 0.3s, color 0.3s;
@@ -172,7 +173,7 @@
 
 /* Hover effect (optional) */
 .main-nav .nav-link:hover {
-  background: #f1f1f1;
+  background: #8181815e;
 }
 
 /* Active state */

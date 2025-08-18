@@ -4,6 +4,9 @@ import { getSlider } from "../apiconfig/apiService";
 import "./../all_css/Home.css";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 import { useLanguage  } from "./../context/LanguageContext";
+import Hero from "./home_pages/Hero";
+import StepsSection from "./home_pages/StepsSection";
+import TestimonialSlider from "./home_pages/TestimonialSlider";
 
 export default function Home() {
   const [slides, setSlides] = useState([]);
@@ -83,7 +86,9 @@ export default function Home() {
   };
 
   return (
-    <div className="slider-container">
+    <div>
+      <Hero />
+          <div className="slider-container">
       {/* Slider */}
       {slides.length > 0 ? (
         <div className="slider" ref={sliderRef}>
@@ -136,7 +141,9 @@ export default function Home() {
           />
         ))}
       </div>
-
+      {/* Middle Section */}
+      <StepsSection />
+      <TestimonialSlider />
 {/* Image Modal with description + date */}
 {modalOpen && modalSlide && (
   <div className="img-modal-overlay" onClick={closeModal}>
@@ -183,6 +190,7 @@ export default function Home() {
   </div>
 )}
 
+    </div>
     </div>
   );
 }

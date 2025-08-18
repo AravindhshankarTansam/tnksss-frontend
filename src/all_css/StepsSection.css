@@ -1,0 +1,56 @@
+.steps-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #fff;
+}
+
+.steps-header h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.steps-header p {
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.steps-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  position: relative;
+}
+
+.step {
+  flex: 1;
+  padding: 1rem;
+  max-width: 300px;
+}
+
+.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.step h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  color: #666;
+  font-size: 0.95rem;
+}
