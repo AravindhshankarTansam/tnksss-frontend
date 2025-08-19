@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { useNavigate } from "react-router-dom";
 import "../all_css/Navbar.css";
 
 // Define BASE_URL at the top (can move to a config file if needed)
@@ -9,6 +10,7 @@ const BASE_URL = "http://localhost:4000";
 export default function Navbar() {
   const [fontSize, setFontSize] = useState(16);
   const { language, toggleLanguage } = useLanguage();
+  const navigate = useNavigate();
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -50,6 +52,11 @@ export default function Navbar() {
     fetchWelcome();
   }, [language]);
 
+    const goToRegister = () => {
+    navigate("/register");
+  };
+
+
   return (
     <header style={{ fontSize: `${fontSize}px` }}>
       {/* Top bar */}
@@ -67,7 +74,7 @@ export default function Navbar() {
           </div>
 
           <div className="signupbtn">
-            <button className="button">sign up</button>
+            <button className="button" onClick={goToRegister}>sign up</button>
           </div>
 
           <div className="lang-toggle-wrapper">

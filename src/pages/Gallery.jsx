@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import "../all_css/Gallery.css";
 import { useLanguage } from "./../context/LanguageContext";
-
-const BASE_URL = "http://localhost:4000";
+import { getGallery } from "../apiconfig/apiService";
 
 export default function Gallery() {
   const [items, setItems] = useState([]);
@@ -12,14 +11,21 @@ export default function Gallery() {
   const itemsPerPage = 16;
 
   useEffect(() => {
-    fetch(`${BASE_URL}/gallery/public/gallery`)
-      .then((res) => res.json())
-      .then((data) => {
-        const published = data.filter((item) => item.publish === 1);
-        setItems(published);
-      })
-      .catch((err) => console.error("Error fetching gallery:", err))
-      .finally(() => setLoading(false));
+    async function fetchGallery() {
+      try {
+        const data = await getGallery();
+        if (data.success && Array.isArray(data.data)) {
+          const published = data.data.filter((item) => item.is_public === true);
+          setItems(published);
+        }
+      } catch (error) {
+        console.error("Error fetching gallery:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchGallery();
   }, []);
 
   if (loading) return <p>Loading...</p>;
@@ -35,9 +41,12 @@ export default function Gallery() {
         {currentItems.map((item) => (
           <div className="gallery-card" key={item.id}>
             <div className="image-wrapper">
-              <img src={item.images[0]} alt={language === "en" ? item.titleEn : item.titleTa} />
+              <img
+                src={item.image}
+                alt={language === "en" ? item.title_en : item.title_ta}
+              />
               <div className="overlay">
-                <h3>{language === "en" ? item.titleEn : item.titleTa}</h3>
+                <h3>{language === "en" ? item.title_en : item.title_ta}</h3>
               </div>
               <div className="date">
                 {new Date(item.date).toLocaleDateString("en-GB")}

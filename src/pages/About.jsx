@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
 import "../all_css/About.css";
 import { useLanguage } from "../context/LanguageContext";
-
-const BASE_URL = "http://localhost:4000";
+import API from "../apiconfig/api.config"; // 👈 use your api.config.js
 
 export default function About() {
   const [items, setItems] = useState([]);
   const [active, setActive] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { language } = useLanguage(); // 👈 will be "en" or "ta"
+  const { language } = useLanguage(); // "en" or "ta"
 
   useEffect(() => {
-    fetch(`${BASE_URL}/aboutus/public/about_us`)
+    fetch(API.ABOUTUS) // 👈 use correct API endpoint
       .then((res) => res.json())
       .then((data) => {
-        const published = data.filter((item) => item.publish === 1);
-        setItems(published);
+        if (data.success && Array.isArray(data.data)) {
+          const published = data.data.filter((item) => item.is_public === true);
+          setItems(published);
 
-        if (published.length > 0) {
-          setActive(published[0].id);
+          if (published.length > 0) {
+            setActive(published[0].id);
+          }
         }
       })
       .catch((err) => console.error("Error fetching about us:", err))
@@ -41,8 +42,8 @@ export default function About() {
             className={active === item.id ? "menu-item active" : "menu-item"}
             onClick={() => setActive(item.id)}
           >
-            {/* 👇 Show Tamil or English title */}
-            {language === "ta" ? item.titleTa : item.titleEn}
+            {/* 👇 Use correct field names */}
+            {language === "ta" ? item.menu_title_ta : item.menu_title_en}
           </button>
         ))}
       </aside>
@@ -51,16 +52,26 @@ export default function About() {
       <section className="about-content">
         {activeItem ? (
           <>
-            <h1>{language === "ta" ? activeItem.titleTa : activeItem.titleEn}</h1>
+            <h1>
+              {language === "ta"
+                ? activeItem.menu_title_ta
+                : activeItem.menu_title_en}
+            </h1>
             <div
               dangerouslySetInnerHTML={{
                 __html:
-                  language === "ta" ? activeItem.descTa : activeItem.descEn,
+                  language === "ta"
+                    ? activeItem.desc_ta
+                    : activeItem.desc_en,
               }}
             />
           </>
         ) : (
-          <p>{language === "ta" ? "உள்ளடக்கம் இல்லை" : "No content available"}</p>
+          <p>
+            {language === "ta"
+              ? "உள்ளடக்கம் இல்லை"
+              : "No content available"}
+          </p>
         )}
       </section>
     </div>

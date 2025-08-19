@@ -1,0 +1,77 @@
+.user-register-form {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  font-family: 'Poppins', sans-serif;
+}
+
+.user-register-form input {
+  width: 92%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.user-register-form input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.4);
+  outline: none;
+}
+
+.signupbtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.signupbtn .button {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signupbtn .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+}
+
+.user-register-form input::placeholder {
+  color: #9ca3af;
+}
+
+.user-register-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.user-register-form .step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.user-register-form .step-indicator div {
+  width: 30%;
+  height: 6px;
+  border-radius: 5px;
+  background: #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.user-register-form .step-indicator div.active {
+  background: #3b82f6;
+}
